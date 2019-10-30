@@ -1,0 +1,27 @@
+.m-large {
+  margin-left: 450px;
+}
+
+.card-body {
+  min-width: 400px;
+}
+.api {
+  background-color: white;
+}
+.m-4.wrapper.row:hover {
+  border: 0px;
+}
+/* .col {
+  background-color: white;
+} */
+.grey {
+  background-color: #DCDCDC;
+}
+.grey:hover {
+  border: 1px solid #778899;
+}
+.card-title {
+  text-align: center;
+  font-weight: bold;
+}
+/* #4682B4 */

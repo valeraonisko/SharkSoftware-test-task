@@ -1,0 +1,30 @@
+.main-header {
+  background-color: #DCDCDC;
+}
+.logo,
+.user {
+  display: inline-block;
+  width: 95px;
+  height: 40px;
+}
+
+.nav-item {
+  padding-top: 5px;
+}
+.brand {
+  font-size: 9px;
+  width: 100px;
+}
+
+.float-right {
+  margin-left: auto;
+}
+
+.user {
+  width: 40px;
+  margin-left: 900px;
+  padding-top: 0px;
+}
+.user:hover {
+  border: 2px solid #4682B4;
+}
