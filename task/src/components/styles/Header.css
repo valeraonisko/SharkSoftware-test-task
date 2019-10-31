@@ -1,6 +1,7 @@
 .main-header {
   background-color: #DCDCDC;
 }
+
 .logo,
 .user {
   display: inline-block;
@@ -11,6 +12,7 @@
 .nav-item {
   padding-top: 5px;
 }
+
 .brand {
   font-size: 9px;
   width: 100px;
@@ -25,6 +27,7 @@
   margin-left: 900px;
   padding-top: 0px;
 }
+
 .user:hover {
   border: 2px solid #4682B4;
 }

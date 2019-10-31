@@ -2,26 +2,41 @@
   margin-left: 450px;
 }
 
-.card-body {
-  min-width: 400px;
+.m-top {
+  margin-top: 20px;
+}
+
+.card-size {
+  min-width: 500px;
+}
+
+.contactImg {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.profile-img {
+  margin-left: auto;
+  margin-right: auto;
 }
 .api {
   background-color: white;
 }
-.m-4.wrapper.row:hover {
+
+.wrapper:hover {
   border: 0px;
 }
-/* .col {
-  background-color: white;
-} */
+
 .grey {
   background-color: #DCDCDC;
 }
+
 .grey:hover {
-  border: 1px solid #778899;
+  /* border: 1px solid #778899; */
+  background-color: #D3D3D3;
 }
-.card-title {
+
+.center {
   text-align: center;
   font-weight: bold;
 }
-/* #4682B4 */

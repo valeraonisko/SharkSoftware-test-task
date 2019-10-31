@@ -12,9 +12,11 @@ import ApiInfo from './ApiInfo';
 export default class Main extends Component {
   componentDidMount() {
     const userKey = localStorage.getItem("userKey");
-    console.log(userKey);
     this.props.setUserKey(userKey);
     this.props.loadApiInfo();
+    if(userKey) {
+      this.props.loadProfile();
+    }
   }
 
   pageMain () {
@@ -41,7 +43,7 @@ export default class Main extends Component {
         <Contacts contactsList={contactsList}/>
       );
     } else {
-      return isError ? requestError : "Contacts is loading...";
+      return isError ? requestError : "Contacts are loading...";
     }
   }
   execLogoutRoute() {

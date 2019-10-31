@@ -13,6 +13,10 @@ export const SET_USER_KEY = 'set_user_key';
 export const API_INFO_RECEIVED = 'api_info_received';
 export const SET_API_INFO = 'set_api_info';
 
+export const PROFILE_RECEIVED = 'profile_received';
+export const SET_LOAD_PROFILE = 'set_load_profile';
+
+
 export const EXEC_LOGOUT = 'exec_logout';
 
 const contactUrl = 'https://randomuser.me/api/?page=1&results=10&seed=abc';
@@ -51,9 +55,7 @@ export const loadContacts = () => (dispatch) => {
     })
 };
 
-
 export const receiveContacts = (contactsList) => {
-  // console.log(contactsList);
   return {
     type: CONTACTS_RECEIVED,
     payload: contactsList.results
@@ -73,14 +75,13 @@ export function setLoginFacebook() {
 }
 
 export function receiveLogin(loginInfo) {
-
   return {
     type: LOGIN_FACEBOOK,
     payload: loginInfo
   };
 }
-export function setUserKey(userKey) {
 
+export function setUserKey(userKey) {
   return {
     type: SET_USER_KEY,
     payload: userKey
@@ -93,7 +94,6 @@ export const loginFacebook = () => (dispatch) => {
     .then(response => {
       if(response.ok) {
         response.json().then(loginData => {
-          console.log(loginData);
           dispatch(receiveLogin(loginData))
         })
       } else {
@@ -114,7 +114,6 @@ export function setApiInfo() {
 }
 
 export function receiveApiInfo(apiInfo) {
-  console.log(apiInfo);
   return {
     type: API_INFO_RECEIVED,
     payload: apiInfo.entries[0]
@@ -140,7 +139,37 @@ export const loadApiInfo = () => (dispatch) => {
     })
 };
 
+export function setLoadProfile() {
+  return {
+    type: SET_LOAD_PROFILE
+  };
+}
 
+export function receiveProfile(profile) {
+  return {
+    type: PROFILE_RECEIVED,
+    payload: profile
+  };
+}
+
+export const loadProfile = () => (dispatch) => {
+  dispatch(setLoadProfile());
+  fetch(loginUrl)
+    .then(response => {
+      if(response.ok) {
+        response.json().then(profile => {
+          dispatch(receiveProfile(profile))
+        })
+      } else {
+        console.log('error receive profile');
+        dispatch(errorRequest('error receive profile'))
+      }
+    })
+    .catch(err => {
+    console.log('error receive profile');
+    dispatch(errorRequest(err.message))
+    })
+};
 export function execLogout() {
   return {
     type: EXEC_LOGOUT

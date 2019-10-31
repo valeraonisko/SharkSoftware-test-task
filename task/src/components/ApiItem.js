@@ -6,7 +6,9 @@ function ApiItem (props) {
   const key = item[0];
   let value = item[1];
   value = typeof value !== "string" ? String(value) : value;
-
+  if((typeof value === "object")) {
+    value = String(Object.entries(value))
+  }
   return (
   <Row className="grey m-4">
     <Col >

@@ -1,9 +1,11 @@
 import React from 'react';
 import {  Col, Card, CardTitle, CardImg, CardBody, CardText, CardLink } from 'reactstrap';
 
-function ContactItem (props) {
+function ProfileItem (props) {
   const { item } = props;
+  console.log(item);
   const fullName = item.name;
+
   const userImg = item.picture.large;
   const userCity = item.location.city;
   const userEmail = item.email;
@@ -13,12 +15,12 @@ function ContactItem (props) {
   return (
 
     <Col className="col-3">
-      <Card className="m-top">
-        <CardBody>
+      <Card className="m-top m-large">
+        <CardBody className="card-size">
           <CardTitle className="center">{fullName.title + " "+ fullName.first + " " + fullName.last}</CardTitle>
           <CardImg className="contactImg" src={userImg}/>
           <CardText>{userCity}</CardText>
-          <CardLink href={mailto}>Email adress:<br/>{userEmail}</CardLink>
+          <CardLink href={mailto}>Email adress: {userEmail}</CardLink>
         </CardBody>
       </Card>
     </Col>
@@ -26,4 +28,4 @@ function ContactItem (props) {
   );
 }
 
-export default ContactItem;
+export default ProfileItem;

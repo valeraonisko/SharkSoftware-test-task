@@ -1,11 +1,10 @@
 import React from 'react';
-import { Row, Col, Card, CardTitle, CardBody } from 'reactstrap';
+import { Row, Col, Card, CardHeader, CardTitle, CardBody } from 'reactstrap';
 import ApiItem from './ApiItem';
 import './styles/ApiInfo.css';
 
 function ApiInfo (props) {
   const {apiInfo} = props;
-  console.log(apiInfo);
   if(apiInfo === null) {
     return (
       <div>
@@ -19,8 +18,10 @@ function ApiInfo (props) {
   <Row className="m-4 wrapper api">
     <Col >
     <Card className="m-large">
-      <CardBody>
-        <CardTitle>API info</CardTitle>
+    <CardHeader className="card-size">
+      <CardTitle className="center">API info</CardTitle>
+    </CardHeader>
+      <CardBody className="card-size">
         {propItems}
       </CardBody>
     </Card>

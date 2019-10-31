@@ -1,6 +1,6 @@
 import { REQUEST_ERROR, CONTACTS_RECEIVED, DROP_REDIRECT,
    CONTACTS_LOAD, SET_LOGIN_FACEBOOK, LOGIN_FACEBOOK,  SET_USER_KEY, LOGIN_DATA_RECEIVED,
-   SET_API_INFO, API_INFO_RECEIVED, EXEC_LOGOUT } from './actions';
+   SET_API_INFO, API_INFO_RECEIVED, PROFILE_RECEIVED, SET_LOAD_PROFILE, EXEC_LOGOUT } from './actions';
 
 const initialState = {
   contactsList: null,
@@ -48,7 +48,6 @@ export function getNextState(state = initialState, action) {
         requestError: null
       };
     case LOGIN_FACEBOOK:
-    console.log(action.payload);
       localStorage.setItem("userKey", action.payload.info.seed);
       return {
         ...state,
@@ -57,16 +56,12 @@ export function getNextState(state = initialState, action) {
 
       };
     case LOGIN_DATA_RECEIVED:
-    console.log(action.payload);
-
       return {
         ...state,
         loginData: action.payload
 
       };
     case SET_USER_KEY:
-    console.log(action.payload);
-
       return {
         ...state,
         userKey: action.payload
@@ -79,11 +74,21 @@ export function getNextState(state = initialState, action) {
         requestError: null
       };
     case API_INFO_RECEIVED:
-    console.log(action.payload);
-
       return {
         ...state,
         apiInfo: action.payload
+
+      };
+    case SET_LOAD_PROFILE:
+      return {
+        ...state,
+        profile: null,
+        requestError: null
+      };
+    case PROFILE_RECEIVED:
+      return {
+        ...state,
+        profile: action.payload.results[0]
 
       };
     case EXEC_LOGOUT:

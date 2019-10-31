@@ -1,11 +1,11 @@
 import {connect} from 'react-redux';
-import {loadContacts, loginFacebook, receiveLogin, loadApiInfo,
+import {loadContacts, loginFacebook, loadApiInfo, loadProfile,
   dropRedirect, execLogout,setUserKey } from '../redux/actions';
 import Main from './Main';
-import {selectRedirect, isContactsLoading,
-     isContactsLoaded, selectIsError, selectRequestError,
+import {selectRedirect, selectIsError, selectRequestError,
      selectUserKey, selectIsContactsLoaded,
-     selectIsContactsLoading, selectContactsList, selectApiInfo, selectProfile } from '../redux/selectors';
+     selectIsContactsLoading, selectContactsList,
+     selectApiInfo, selectProfile } from '../redux/selectors';
 
 function mapStateToProps(state) {
   return {
@@ -24,10 +24,10 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     setUserKey: (userKey) => dispatch(setUserKey(userKey)),
-
     loadApiInfo: () => dispatch(loadApiInfo()),
     loadContacts: () => dispatch(loadContacts()),
     loginFacebook: () => dispatch(loginFacebook()),
+    loadProfile: () => dispatch(loadProfile()),
     dropRedirect: () => dispatch(dropRedirect()),
     execLogout: () => dispatch(execLogout())
 
